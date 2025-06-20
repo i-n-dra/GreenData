@@ -11,8 +11,13 @@ fonttools==4.58.4
 idna==3.10
 joblib==1.5.1
 kiwisolver==1.4.8
+matplotlib==3.10.3
+numpy==2.2.6
+openpyxl==3.1.5
 packaging==25.0
+pandas==2.2.3
 pefile==2023.2.7
+pillow==11.2.1
 pyinstaller==6.14.1
 pyinstaller-hooks-contrib==2025.5
 PyMySQL==1.1.1
@@ -22,6 +27,8 @@ pytz==2025.2
 pywin32-ctypes==0.2.3
 requests==2.32.4
 scikit-learn==1.6.1
+scipy==1.15.3
+setuptools==80.9.0
 six==1.17.0
 sqlparse==0.5.3
 threadpoolctl==3.6.0
