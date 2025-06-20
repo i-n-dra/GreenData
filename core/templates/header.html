@@ -1,0 +1,34 @@
+{% load static %}
+
+    <header class="main-header">
+        {% comment %}
+            <div class="menu-toggle">
+                <button id="sidebarToggle">&#9776;</button>
+            </div>
+        {% endcomment %}
+ 
+        <div class="quick-access">
+            <button>Dashboard</button>
+            <button>Reportes</button>
+            <button>Ayuda</button>
+        </div>
+        
+        <div class="header-title">
+            <h1><a href="{% url 'home' %}">GreenData</a></h1>
+        </div>
+
+        <div class="header-utilities">
+            <button title="Configuración">
+                <i class="bi bi-gear-fill icon"></i>
+            </button>
+            <button title="Info">
+                <i class="bi bi-info-circle-fill icon"></i>
+            </button>
+            {% comment %}
+            if user. bla blabla
+                <div class="user-profile">
+                    <img src="avatar.jpg" alt="Usuario" />
+                </div>
+            {% endcomment %}
+        </div>
+    </header>

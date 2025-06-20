@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>GreenData - Cultivos</title> 
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <div class="home">
+        <h1 class="table-title">Panel de Cultivos</h1>
+
+        <div class="table-container">
+            <!-- <h2>Detalles</h2> Potencial sección de resumen-->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo de cultivo</th>
+                        <th>Fecha de siembra</th>
+                        <th>Fecha de cosecha</th>
+                        <th>Temporada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in cultivos %}
+                    <tr>
+                        <td>{{ c.nombre }}</td>
+                        <td>{{ c.fecha_siembra }}</td>
+                        <td>{{ c.fecha_cosecha }}</td>
+                        {% if c.temporada == 1 or c.temporada == 2 or c.temporada == 3 %}
+                            <td>Verano</td>
+                        {% elif c.temporada == 4 or c.temporada == 5 or c.temporada == 6 %}
+                            <td>Otoño</td>
+                        {% elif c.temporada == 7 or c.temporada == 8 or c.temporada == 9 %}
+                            <td>Invierno</td>
+                        {% elif c.temporada == 10 or c.temporada == 11 or c.temporada == 12 %}
+                            <td>Primavera</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+</body>
+</html>

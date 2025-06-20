@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>GreenData - Plásticos (usados)</title> 
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <div class="home">
+        <h1 class="table-title">Panel de Plásticos (usados)</h1>
+
+        <div class="table-container">
+            <!-- <h2>Detalles</h2> Potencial sección de resumen-->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Cantidad</th>
+                        <th>Fecha de uso
+                            <p class="table-subtitle">Cuando se comenzó a utilizar</p>
+                        </th>
+                        <th>Cultivo relacionado
+                            <p class="table-subtitle">En donde se utilizó</p>
+                        </th>
+                        <th>Origen
+                            <p class="table-subtitle">Reciclado o nuevo</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in pla_usados %}
+                    <tr>
+                        <td>{{ p.tipo|capfirst }}</td>
+                        <td>{{ p.cantidad }}kg</td>
+                        <td>{{ p.fecha_uso }}</td>
+                        <td>{{ p.cultivo.nombre }}</td>
+                        <td>{{ p.origen }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+</body>
+</html>
