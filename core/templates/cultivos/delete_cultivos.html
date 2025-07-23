@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>GreenData - Cultivos</title> 
+</head>
+<body>
+
+    {% include "header.html" %}
+
+    <div class="home">
+        <h1 class="table-title">Eliminar Cultivo</h1>
+
+        <div>
+            <form method='POST' enctype="multipart/form-data" class="crud-container">
+                {% csrf_token %}
+                <table class="form-table">
+                    <h2>¿Desea eliminar el siguiente cultivo?</h2>
+                    <thead>
+                    <tr>
+                        <th>Tipo de cultivo</th>
+                        <th>Fecha de siembra</th>
+                        <th>Fecha de cosecha</th>
+                        <th>Temporada</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ cultivo.nombre }}</td>
+                            <td>{{ cultivo.fecha_siembra }}</td>
+                            <td>{{ cultivo.fecha_cosecha }}</td>
+                            {% if cultivo.temporada == 1 or cultivo.temporada == 2 or cultivo.temporada == 3 %}
+                                <td>Verano</td>
+                            {% elif cultivo.temporada == 4 or cultivo.temporada == 5 or cultivo.temporada == 6 %}
+                                <td>Otoño</td>
+                            {% elif cultivo.temporada == 7 or cultivo.temporada == 8 or cultivo.temporada == 9 %}
+                                <td>Invierno</td>
+                            {% elif cultivo.temporada == 10 or cultivo.temporada == 11 or cultivo.temporada == 12 %}
+                                <td>Primavera</td>
+                            {% endif %}
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <button class='add-button'>Confirmar</button>
+                    <a href="{% url 'list_cultivos' %}"><button type='button' class='delete-button'>Volver</button></a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+</body>
+</html>

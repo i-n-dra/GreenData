@@ -90,6 +90,17 @@ header a:hover {
   border-radius: 50%;
 }
 
+/* formulario */
+.form-table {
+    width: 60%;
+}
+.form-table th {
+    width: 20%;
+}
+.form-table input {
+    color: #333;
+}
+
 /* Body */
 
 .home {
@@ -160,6 +171,15 @@ h1, h2 {
     margin: 1.5rem 3rem .5rem;
     overflow-x: auto;
 }
+.above-table {
+    display: inline-block;
+    margin-left: 5.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #2d6a4f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
 
 table {
     width: 90%;
@@ -189,6 +209,26 @@ th {
 
 tr:hover {
     background-color: #f1f1f1;
+}
+.crud-container {
+    display: flex;
+    flex-direction: column;
+}
+.add-button {
+    background-color: #2d6a4f;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.delete-button {
+    background-color: #6a2d2d;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 /* footer style */

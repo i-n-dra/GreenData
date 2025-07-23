@@ -17,6 +17,7 @@
         <h1 class="table-title">Panel de Cultivos</h1>
 
         <div class="table-container">
+            <a href="{% url 'create_cultivo' %}" class='above-table'><i class="bi bi-plus-square-fill"></i>  Crear Cultivo</a>
             <!-- <h2>Detalles</h2> Potencial sección de resumen-->
             <table>
                 <thead>
@@ -25,6 +26,7 @@
                         <th>Fecha de siembra</th>
                         <th>Fecha de cosecha</th>
                         <th>Temporada</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,7 +34,8 @@
                     <tr>
                         <td>{{ c.nombre }}</td>
                         <td>{{ c.fecha_siembra }}</td>
-                        <td>{{ c.fecha_cosecha }}</td>
+                        <td>
+                            {% if c.fecha_cosecha %}{{ c.fecha_cosecha }}{% else %}Sin cosechar{% endif %}</td>
                         {% if c.temporada == 1 or c.temporada == 2 or c.temporada == 3 %}
                             <td>Verano</td>
                         {% elif c.temporada == 4 or c.temporada == 5 or c.temporada == 6 %}
@@ -42,6 +45,10 @@
                         {% elif c.temporada == 10 or c.temporada == 11 or c.temporada == 12 %}
                             <td>Primavera</td>
                         {% endif %}
+                        <td>
+                            <a href="{% url 'update_cultivo' c.id %}"><i class="icon bi bi-pencil-square"></i></a>
+                            <a href="{% url 'delete_cultivo' c.id %}"><i class="icon bi bi-trash-fill"></i></a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>

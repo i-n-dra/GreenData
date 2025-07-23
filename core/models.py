@@ -6,7 +6,7 @@ class Cultivo(models.Model):
     # cultivo tendria una fk a terreno  
     nombre = models.CharField(verbose_name='Nombre', max_length=25)
     fecha_siembra = models.DateField(verbose_name='Fecha de siembra', auto_now=True)
-    fecha_cosecha = models.DateField(verbose_name='Fecha de cosecha')
+    fecha_cosecha = models.DateField(verbose_name='Fecha de cosecha', null=True, blank=True)
     temporada = models.IntegerField(verbose_name='Temporada')
     
     def __str__(self):

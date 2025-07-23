@@ -18,6 +18,7 @@
 
         <div class="table-container">
             <!-- <h2>Detalles</h2> Potencial sección de resumen-->
+            <a href="{% url 'create_empleado' %}" class='above-table'><i class="bi bi-plus-square-fill"></i>  Crear Empleado</a>
             <table>
                 <thead>
                     <tr>
@@ -27,6 +28,7 @@
                         <th>Género</th>
                         <th>Fecha de nacimiento</th>
                         <th>Correo electrónico</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +40,10 @@
                         <td>{{ e.sexo }}</td>
                         <td>{{ e.fecha_nacimiento }}</td>
                         <td>{{ e.correo }}</td>
+                        <td>
+                            <a href="{% url 'update_empleado' e.id %}"><i class="icon bi bi-pencil-square"></i></a>
+                            <a href="{% url 'delete_empleado' e.id %}"><i class="icon bi bi-trash-fill"></i></a>
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
